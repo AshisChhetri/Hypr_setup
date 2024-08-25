@@ -15,23 +15,8 @@ is_installed(){
 	return $?
 }
 
-# yay
-if ! is_installed yay; then
-	cd /opt
-	sudo git clone https://aur.archlinux.org/yay.git
-	sudo chown -R vagrant:vagrant yay
-	cd yay
-	makepkg -si
-else
-	echo "yay is already installed.."
-fi
-
 # base needed packages
-initial_pkg=(
-	"git"
-	"base-devel"
-	"htop"	
-)
+sudo pacman -Syu git base-devel
 
 # hyprinitial packages
 hypr_pkgs=(
@@ -51,12 +36,6 @@ ext_pkg=(
 # Empty Array
 to_install=()
 
-# loop array for each packages
-#for package in "${hypr_pkgs[@]}"
-#do
-#	check_install_pkg "$package"
-#done
-#
 
 # base package install loop
 for package in "${initial_pkg[@]}"
@@ -67,6 +46,17 @@ do
 		echo "$package is already installed."
 	fi
 done
+
+# yay
+if ! is_installed yay; then
+	cd /opt
+	sudo git clone https://aur.archlinux.org/yay.git
+	sudo chown -R vagrant:vagrant yay
+	cd yay
+	makepkg -si
+else
+	echo "yay is already installed.."
+fi
 
 # hyprinstall loop
 for package in "${hypr_pkgs[@]}"
