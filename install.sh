@@ -58,6 +58,74 @@ else
 	echo "yay is already installed.."
 fi
 
+
+#-----------------------  new Code ----------------------
+
+#!/bin/bash
+check_install_pkg(){
+    if ! command -v "$1" &> /dev/null
+    then
+        echo "$1 is not installed. Installing...."
+        sudo pacman -Sy "$1"
+    else
+        echo "$1 is already installed."
+    fi
+}
+
+is_installed(){
+    pacman -Qi "$1" &> /dev/null
+    return $?
+}
+
+# Base needed packages
+sudo pacman -Syu git base-devel
+
+# Package arrays
+declare -a packages=(
+    ["base"]=(
+        "hyprland"
+        "hyprpaper"
+        "kitty"
+        "wofi"
+    )
+    ["extra"]=(
+        "visual-studio-code-bin"
+        "firefox"
+    )
+)
+
+# Install packages
+for package_group in "${!packages[@]}"; do
+    for package in "${packages[$package_group]}"; do
+        if ! is_installed "$package"; then
+            if [[ "$package_group" == "base" ]]; then
+                sudo pacman -Sy "$package"
+            else
+                yay -Sy --needed "$package"
+            fi
+        else
+            echo "$package is already installed."
+        fi
+    done
+done
+
+# Install yay if not installed
+if ! is_installed yay; then
+    cd /opt
+    sudo git clone https://aur.archlinux.org/yay.git
+    sudo chown -R vagrant:vagrant yay
+    cd yay
+    makepkg -si
+else
+    echo "yay is already installed."
+fi
+
+echo "All packages have been checked and installed if necessary."
+
+#----------------------- new code End -------------------
+
+
+
 # hyprinstall loop
 for package in "${hypr_pkgs[@]}"
 do
