@@ -1,0 +1,9 @@
+Skipping Pokemon color scripts installation.
+./zsh.sh: line 53: install_package: command not found
+./zsh.sh: line 53: install_package: command not found
+./zsh.sh: line 53: install_package: command not found
+./zsh.sh: line 53: install_package: command not found
+Directory .oh-my-zsh already exists. Skipping re-installation.
+Directory zsh-autosuggestions already exists. Skipping cloning.
+Directory zsh-syntax-highlighting already exists. Skipping cloning.
+ Shell changed successfully to zsh.
