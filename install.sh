@@ -87,8 +87,6 @@ ext_pkg=(
 	"firefox"
 	"thunar"
 	"ranger"
-	"polkit-gnome"
-	"thunar" 
   	"thunar-volman "
   	"tumbler"
   	"ffmpegthumbnailer"
