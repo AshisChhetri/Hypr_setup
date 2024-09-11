@@ -83,6 +83,7 @@ hypr_pkgs=(
 
 # Extra apps
 ext_pkg=(
+	"eog"
 	"visual-studio-code-bin"
 	"firefox"
 	"thunar"

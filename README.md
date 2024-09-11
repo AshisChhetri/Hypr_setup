@@ -2,6 +2,7 @@
 
 
 <h2>hyprpackages</h2>
+-> 28 packages
 
 ``hyprland`` :-> Hyprland packages
 
@@ -96,6 +97,12 @@ creating and extracting archives directly from the file manager.
 desktop environment, including themes, icons, and other visual settings.
 
 ```bash
-yay -S visual-studio-code-bi firefo thuna range thunar-volman tumble ffmpegthumbnaile file-roller thunar-archive-plugi nwg-loo
+yay -S visual-studio-code-bi firefox thuna range thunar-volman tumble ffmpegthumbnaile file-roller thunar-archive-plugi nwg-loo
 ```
 
+## very minimal waybar look and changed in Shortcuts..
+Screenshot 1
+<img src="screenshots/Screenshot_03-Sep_09-16-01_23075.png" alt="">
+
+Screenshot 2
+<img src="screenshots/Screenshot_11-Sep_12-46-53_15336.png" alt="">
